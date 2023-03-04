@@ -16,7 +16,7 @@ def load_data():
     """Load the data"""
     global df
     if not df:
-        df1 = pd.read_pickle(r'C:\Users\esinkova\Desktop\Lingv\Scripts\app\my_dataframe1.pkl')
-        df2 = pd.read_pickle(r'C:\Users\esinkova\Desktop\Lingv\Scripts\app\my_dataframe2.pkl')
-        df3 = pd.read_pickle(r'C:\Users\esinkova\Desktop\Lingv\Scripts\app\my_dataframe3.pkl')
+        df1 = pd.read_pickle('my_dataframe1.pkl')
+        df2 = pd.read_pickle('my_dataframe2.pkl')
+        df3 = pd.read_pickle('my_dataframe3.pkl')
         return pd.concat([df1, df2, df3], axis=0)

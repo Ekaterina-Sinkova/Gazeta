@@ -21,7 +21,8 @@ def get_top10(index, query):
     """Возвращает 10 статей, который максимально похожи на запрос"""
     query_embedding = embedder.encode(query, convert_to_tensor=False)
     _, I = index.search(np.array(query_embedding).reshape((1,768)), 10)
-    result = df.iloc[I[0]][['summary', 'url']]
+    result = df.iloc[I[0]][['summary', 'url']].reset_index(drop=True)
+    result.index = np.arange(1, len(result) + 1)
     return result
 
 query = st.text_area("Введите запрос")
